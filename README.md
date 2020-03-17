@@ -3,13 +3,6 @@ Python interface for [ASCOM Alpaca](https://ascom-standards.org/Developer/Alpaca
 
 
 
-## Install
-#### Using Pip
-If downloading from the Python Package Index, run
-```
-python3 -m pip install Alpyca
-```
-
 #### From source
 If you have the source code in a tar file, extract it and run
 ```
@@ -25,7 +18,7 @@ Alpyca's classes, methods, and parameters use the same names as ASCOM Alpaca's R
 The address to move a telescope accessible at ```http://127.0.0.1:11111/api/v1/telescope/0/moveaxis``` with the request body ```{"Axis": 0, "Rate": 1.5}``` translates into this Python code:
 ```
 # Import the Telescope class.
-from alpaca import Telescope
+from alpycaclient import Telescope
 
 # Initialize a Telescope object with 0 as the device number.
 t = Telescope('127.0.0.1:11111', 0)
