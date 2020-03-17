@@ -2136,3 +2136,9 @@ class ErrorMessage(Exception):
     def __str__(self):
         """Message to display with error."""
         return self.message
+
+
+def CreateClient(name):
+    devname = list(typ(val)
+                   for typ, val in zip((str, str, int), name.split('/')))
+    return globals()[devname[0]](*devname[1:])
