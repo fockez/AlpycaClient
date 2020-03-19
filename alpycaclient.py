@@ -177,11 +177,12 @@ class Device:
             response (Response): Response from Alpaca server to check.
 
         """
-        j = response.json()
-        if j["ErrorNumber"] != 0:
-            raise NumericError(j["ErrorNumber"], j["ErrorMessage"])
-        elif response.status_code == 400 or response.status_code == 500:
-            raise ErrorMessage(j["Value"])
+        if response.status_code == 400 or response.status_code == 500:
+            raise ErrorMessage(response.text)
+        elif response.status_code == 200:
+            j = response.json()
+            if j["ErrorNumber"] != 0:
+                raise NumericError(j["ErrorNumber"], j["ErrorMessage"])
 
 
 class Switch(Device):
